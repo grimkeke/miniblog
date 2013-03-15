@@ -1,6 +1,7 @@
 *~
 *.swp
 *.pyc
+app.db
 flask/
 venv/
 db_repository/versions/*.py
