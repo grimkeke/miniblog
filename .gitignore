@@ -1,5 +1,6 @@
 *~
 *.swp
 *.pyc
+flask/
 venv/
 db_repository/versions/*.py
