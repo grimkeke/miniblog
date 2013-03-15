@@ -2,6 +2,7 @@
 *.swp
 *.pyc
 app.db
+test.db
 flask/
 venv/
 db_repository/versions/*.py
