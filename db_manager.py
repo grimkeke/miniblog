@@ -2,7 +2,7 @@ from migrate.versioning import api
 from config import SQLALCHEMY_DATABASE_URI
 from config import SQLALCHEMY_MIGRATE_REPO
 from app import db
-import imp, os.path
+import imp, os, os.path
 from sys import argv
 
 def db_create():
@@ -38,6 +38,9 @@ def db_downgrade():
     api.downgrade(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO, v - 1)
     print 'Current database version: ' + str(api.db_version(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO))
 
+def start_mailserver():
+    os.system('python -m smtpd -n -c DebuggingServer localhost:25')
+
 def print_usage(name):
     print '''Usage: python %s [-cmud]''' % name
 
@@ -55,6 +58,8 @@ def main():
         db_upgrade()
     elif cmd in ['-d', '--downgrade']:
         db_downgrade()
+    elif cmd in ['-M', '--mail']:
+        start_mailserver()
     else:
         print_usage()
 
