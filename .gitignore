@@ -3,6 +3,7 @@
 *.pyc
 app.db
 test.db
+search.db
 flask/
 venv/
 db_repository/versions/*.py
