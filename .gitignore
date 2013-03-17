@@ -1,6 +1,7 @@
 *~
 *.swp
 *.pyc
+*.DS_Store
 app.db
 test.db
 search.db

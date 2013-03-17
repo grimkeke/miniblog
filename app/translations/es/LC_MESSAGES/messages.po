@@ -1,0 +1,31 @@
+# Spanish translations for PROJECT.
+# Copyright (C) 2013 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2013-03-17 15:51+0800\n"
+"PO-Revision-Date: 2013-03-17 16:13+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+"X-Generator: Poedit 1.5.5\n"
+
+#: app/forms.py:23
+msgid "This nickname contains invalid characters"
+msgstr "昵称含有非法字符"
+
+#: app/forms.py:27
+msgid "This nickname is already in use. Please choose another one."
+msgstr "昵称已经被使用了，请换一个吧"
+
+#: app/views.py:59
+msgid "Invalid login. Please try again."
+msgstr "登陆无效，请重新登陆"

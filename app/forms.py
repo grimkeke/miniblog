@@ -1,5 +1,6 @@
 from flask.ext.wtf import Form, TextField, BooleanField, TextAreaField
 from flask.ext.wtf import Required, Length
+from flask.ext.babel import gettext
 from models import User
 
 class LoginForm(Form):
@@ -19,9 +20,12 @@ class EditForm(Form):
             return False
         if self.nickname.data == self.original_nickname:
             return True
+        if self.nickname.data != User.make_valid_nickname(self.nickname.data):
+            self.nickname.errors.append(gettext('This nickname contains invalid characters'))
+            return False
         user = User.query.filter_by(nickname = self.nickname.data).first()
         if user != None:
-            self.nickname.errors.append('This nickname is already in use. Please choose another one.')
+            self.nickname.errors.append(gettext('This nickname is already in use. Please choose another one.'))
             return False
         return True
 

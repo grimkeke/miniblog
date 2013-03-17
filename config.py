@@ -1,4 +1,11 @@
+# -*- coding: utf-8 -*-
 import os
+
+# available languages
+LANGUAGES = {
+        'en': 'English',
+        'es': 'Español'
+        }
 
 CSRF_ENABLED = True
 SECRET_KEY = os.urandom(24)

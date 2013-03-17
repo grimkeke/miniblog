@@ -1,10 +1,11 @@
 <table>
     <tr valign="top">
         <p><img src="{{post.author.avatar(40)}}">
-        <a href="{{ url_for('user', nickname = post.author.nickname) }}">
-                {{ post.author.nickname }}
-            </a>
-            said {{ momentjs(post.timestamp).fromNow() }}:
+        {% autoescape flase %}
+        {{ _('%(nickname)s said %(when)s:',
+        nickname = '<a href="%s">%s</a>' % (url_for('user', nickname = post.author.nickname), post.author.nickname),
+        when = momentjs(post.timestamp).fromNow()) }}
         <strong>{{ post.body }}</strong></p>
+        {% endautoescape %}
     </tr>
 </table>
