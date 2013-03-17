@@ -41,12 +41,17 @@ def db_downgrade():
 def start_mailserver():
     os.system('python -m smtpd -n -c DebuggingServer localhost:25')
 
-def print_usage(name):
-    print '''Usage: python %s [-cmud]''' % name
+def print_usage():
+    print '''Usage: python %s [-cmud]
+    -c | --create    db_create
+    -m | --migrate   db_migrate
+    -u | --upgrade   db_upgrade
+    -d | --downgrade db_downgrade
+    -M | --mail      start_mailserver''' % argv[0]
 
 def main():
     if len(argv) != 2:
-        print_usage(argv[0])
+        print_usage()
         exit()
 
     cmd = argv[1]

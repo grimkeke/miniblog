@@ -84,8 +84,13 @@ class Post(db.Model):
     body = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    language = db.Column(db.String(5))
 
     def __repr__(self):
         return '<Post %r>' % (self.body)
+
+    @staticmethod
+    def translate(text, srcLang, destLang):
+        return 'language:%s %s' % (destLang, text)
 
 whooshalchemy.whoosh_index(app, Post)
