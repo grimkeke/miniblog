@@ -53,8 +53,8 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         session['remember_me'] = form.remember_me.data
-        flash('Login requested for OpenID="' + form.openid.data + \
-                '", remember_me=' + str(form.remember_me.data))
+        flash(gettext('Login requested for OpenID="' + form.openid.data + \
+                '", remember_me=' + str(form.remember_me.data)))
         return oid.try_login(form.openid.data, ask_for = ['nickname', 'email'])
     return render_template('login.html', title = 'Sign In', form = form,
             providers = app.config['OPENID_PROVIDERS'])
@@ -96,7 +96,7 @@ def logout():
 def user(nickname, page = 1):
     user = User.query.filter_by(nickname = nickname).first()
     if user == None:
-        flash('User' + nickname + 'not found.')
+        flash(gettext('User' + nickname + 'not found.'))
         return redirect(url_for('index'))
     posts = user.posts.paginate(page, POSTS_PER_PAGE, False)
     return render_template('user.html',
@@ -112,7 +112,7 @@ def edit():
         g.user.about_me = form.about_me.data
         db.session.add(g.user)
         db.session.commit()
-        flash('Your changes have been saved.')
+        flash(gettext('Your changes have been saved.'))
         return redirect(url_for('edit'))
     else:
         form.nickname.data = g.user.nickname
@@ -124,18 +124,18 @@ def edit():
 def follow(nickname):
     user = User.query.filter_by(nickname = nickname).first()
     if user == None:
-        flash('User ' + nickname + ' not found.')
+        flash(gettext('User ' + nickname + ' not found.'))
         return redirect(url_for('index'))
     if user == g.user:
-        flash('You can\'t follow yourself!')
+        flash(gettext('You can\'t follow yourself!'))
         return redirect(url_for('user', nickname = nickname))
     u = g.user.follow(user)
     if u is None:
-        flash('Cannot follow ' + nickname + '.')
+        flash(gettext('Cannot follow ' + nickname + '.'))
         return redirect(url_for('user', nickname = nickname))
     db.session.add(u)
     db.session.commit()
-    flash('You are now following ' + nickname + '!')
+    flash(gettext('You are now following ' + nickname + '!'))
     follower_notification(user, g.user)
     return redirect(url_for('user', nickname = nickname))
 
@@ -144,18 +144,18 @@ def follow(nickname):
 def unfollow(nickname):
     user = User.query.filter_by(nickname = nickname).first()
     if user == None:
-        flash('User ' + nickname + ' not found.')
+        flash(gettext('User ' + nickname + ' not found.'))
         return redirect(url_for('index'))
     if user == g.user:
-        flash('You can\'t unfollow yourself!')
+        flash(gettext('You can\'t unfollow yourself!'))
         return redirect(url_for('user', nickname = nickname))
     u = g.user.unfollow(user)
     if u is None:
-        flash('Cannot unfollow ' + nickname + '.')
+        flash(gettext('Cannot unfollow ' + nickname + '.'))
         return redirect(url_for('user', nickname = nickname))
     db.session.add(u)
     db.session.commit()
-    flash('You have stopped following ' + nickname + '.')
+    flash(gettext('You have stopped following ' + nickname + '.'))
     return redirect(url_for('user', nickname = nickname))
 
 @app.route('/search', methods = ['POST'])

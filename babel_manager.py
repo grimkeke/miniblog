@@ -5,7 +5,8 @@ import sys
 if sys.platform == 'wn32':
     pybabel = 'flask\\Scripts\\pybabel'
 else:
-    pybabel = 'flask/bin/pybabel'
+#    pybabel = 'flask/bin/pybabel'
+    pybabel = 'pybabel'
 
 def babel_init():
     os.system(pybabel + ' extract -F babel.cfg -k lazy_gettext -o messages.pot app')
@@ -21,7 +22,10 @@ def babel_compile():
     os.system(pybabel + ' compile -d app/translations')
 
 def print_usage():
-    print """usage: %s  [-iuc]""" % sys.argv[0]
+    print """Usage: python %s  [-iuc]
+    -i | --init    babel_init
+    -u | --update  babel_update
+    -c | --compile babel_compile""" % sys.argv[0]
 
 def main():
     if len(sys.argv) != 2:

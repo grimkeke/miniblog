@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-03-17 15:51+0800\n"
-"PO-Revision-Date: 2013-03-17 16:13+0800\n"
+"POT-Creation-Date: 2013-03-17 22:35+0800\n"
+"PO-Revision-Date: 2013-03-17 22:40+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: es <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -18,14 +18,145 @@ msgstr ""
 "Generated-By: Babel 0.9.6\n"
 "X-Generator: Poedit 1.5.5\n"
 
-#: app/forms.py:23
+#: app/forms.py:24
 msgid "This nickname contains invalid characters"
 msgstr "昵称含有非法字符"
 
-#: app/forms.py:27
+#: app/forms.py:28
 msgid "This nickname is already in use. Please choose another one."
 msgstr "昵称已经被使用了，请换一个吧"
 
-#: app/views.py:59
+#: app/views.py:36
+msgid "Your post is now live!"
+msgstr "嘀咕已成功提交"
+
+#: app/views.py:57
+msgid "Login requested for OpenID=\"\", remember_me="
+msgstr "登陆需要公共帐号＝，记住登陆＝"
+
+#: app/views.py:65
 msgid "Invalid login. Please try again."
 msgstr "登陆无效，请重新登陆"
+
+#: app/views.py:99
+msgid "Usernot found."
+msgstr "未找到用户"
+
+#: app/views.py:115
+msgid "Your changes have been saved."
+msgstr "修改已经更新"
+
+#: app/views.py:127 app/views.py:147
+msgid "User  not found."
+msgstr "未找到用户"
+
+#: app/views.py:130
+msgid "You can't follow yourself!"
+msgstr "你不能关注你自己！"
+
+#: app/views.py:134
+msgid "Cannot follow ."
+msgstr "无法跟随。"
+
+#: app/views.py:138
+msgid "You are now following !"
+msgstr "你正在跟随！"
+
+#: app/views.py:150
+msgid "You can't unfollow yourself!"
+msgstr "你不能停止关注自己！"
+
+#: app/views.py:154
+msgid "Cannot unfollow ."
+msgstr "无法跟随"
+
+#: app/views.py:158
+msgid "You have stopped following ."
+msgstr "你已经停止关注"
+
+#: app/templates/base.html:21
+msgid "Error: Could not contact server."
+msgstr "错误：无法连接服务器"
+
+#: app/templates/base.html:34
+msgid "microblog"
+msgstr "微博客"
+
+#: app/templates/base.html:38
+msgid "Microblog"
+msgstr "微博客"
+
+#: app/templates/base.html:39
+msgid "Home"
+msgstr "首页"
+
+#: app/templates/base.html:41
+msgid "Your Profile"
+msgstr "你的资料"
+
+#: app/templates/base.html:44
+msgid "Search"
+msgstr "搜索"
+
+#: app/templates/base.html:46
+msgid "Logout"
+msgstr "退出"
+
+#: app/templates/edit.html:5
+msgid "Edit Your Profile"
+msgstr "编辑资料"
+
+#: app/templates/edit.html:10
+msgid "Your nickname:"
+msgstr "你的昵称"
+
+#: app/templates/edit.html:19
+msgid "About yourself:"
+msgstr "关于自己："
+
+#: app/templates/edit.html:24
+msgid "Save Changes"
+msgstr "保存"
+
+#: app/templates/index.html:20
+msgid "Post!"
+msgstr "发布！"
+
+#: app/templates/index.html:31 app/templates/index.html:33
+#: app/templates/user.html:31 app/templates/user.html:33
+msgid "Newer posts"
+msgstr "更早的"
+
+#: app/templates/index.html:37 app/templates/index.html:39
+#: app/templates/user.html:39
+msgid "Older posts"
+msgstr "较早的信息"
+
+#: app/templates/post.html:5
+#, python-format
+msgid "%(nickname)s said %(when)s:"
+msgstr ""
+
+#: app/templates/post.html:13
+msgid "Translate"
+msgstr "翻译"
+
+#: app/templates/user.html:14
+msgid "followers"
+msgstr "粉丝"
+
+#: app/templates/user.html:16
+msgid "Edit your profile"
+msgstr "编辑资料"
+
+#: app/templates/user.html:18
+msgid "Follow"
+msgstr "关注"
+
+#: app/templates/user.html:20
+msgid "Unfollow"
+msgstr "取消关注"
+
+#: app/templates/user.html:37
+msgid ">Older posts"
+msgstr ""

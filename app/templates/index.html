@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="Post!"></td>
+            <td><input type="submit" value={{ _("Post!") }}></td>
             <td></td>
         </tr>
     </table>
@@ -28,14 +28,14 @@
     {% include 'post.html' %}
 {% endfor %}
 {% if posts.has_prev %}
-    <a href="{{ url_for('index', page = posts.prev_num) }}"><< Newer posts</a>
+<a href="{{ url_for('index', page = posts.prev_num) }}"><< {{ _('Newer posts') }}</a>
 {% else %}
-    << Newer posts
+<< {{ _('Newer posts') }}
 {% endif %} |
 
 {% if posts.has_next %}
-    <a href="{{ url_for('index', page = posts.next_num) }}">Older posts >></a>
+<a href="{{ url_for('index', page = posts.next_num) }}">{{ _('Older posts') }} >></a>
 {% else %}
-    Older posts >>
+{{ _('Older posts') }} >>
 {% endif %}
 {% endblock %}
