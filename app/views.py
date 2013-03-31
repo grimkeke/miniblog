@@ -73,8 +73,6 @@ def after_login(resp):
         nickname = User.make_unique_nickname(nickname)
         user = User(nickname = nickname, email = resp.email, role = ROLE_USER)
         db.session.add(user)
-        db.session.commit()
-
         # make the user follow himself
         db.session.add(user.follow(user))
         db.session.commit()
